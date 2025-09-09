@@ -30,7 +30,7 @@ const RegisterPage = () => {
     }
 
     // 2. Если регистрация успешна, входим
-    const loginResponse = await fetch('http://localhost:8080/auth/signin', {
+    const loginResponse = await fetch('http://localhost:8070/auth/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, password }),
@@ -49,7 +49,7 @@ const RegisterPage = () => {
     localStorage.setItem('token', token);
     localStorage.setItem('name', name);
     login(token);
-    navigate('/habits');
+    navigate('/chat');
 
   } catch (err) {
     setError(err.message || 'Authentication failed');

@@ -13,7 +13,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/auth/signin', {
+      const response = await fetch('http://localhost:8070/auth/signin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, password }),
@@ -32,7 +32,7 @@ const LoginPage = () => {
         localStorage.setItem('token', token);
         localStorage.setItem('name', name);
         login(token);
-        navigate('/habits'); // Перенаправляем на защищённую страницу
+        navigate('/chat'); // Перенаправляем на защищённую страницу
     } catch (err) {
       setError('Invalid credentials');
     }
